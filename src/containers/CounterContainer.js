@@ -1,5 +1,5 @@
 import React from "react";
-import { increase, decrease } from "../modules/counter";
+import { increaseAsync, decreaseAsync } from "../modules/counter";
 import { useDispatch, useSelector } from "react-redux";
 import Counter from "../components/Counter";
 
@@ -8,11 +8,11 @@ function CounterContainer() {
   const dispatch = useDispatch();
 
   const onIncrease = () => {
-    dispatch(increase());
+    dispatch(increaseAsync());
   };
 
   const onDecrease = () => {
-    dispatch(decrease());
+    dispatch(decreaseAsync());
   };
 
   return (
