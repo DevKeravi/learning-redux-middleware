@@ -18,7 +18,12 @@ export const reducerUtils = {
     data: initialData,
     error: null,
   }),
-  sucess: (payload) => ({
+  loading: (prevState = null) => ({
+    loading: true,
+    data: prevState,
+    error: null,
+  }),
+  success: (payload) => ({
     loading: false,
     data: payload,
     error: null,
@@ -42,7 +47,7 @@ export const handleAsyncActions = (type, key) => {
       case SUCCESS:
         return {
           ...state,
-          [key]: reducerUtils.sucess(action.payload),
+          [key]: reducerUtils.success(action.payload),
         };
       case ERROR:
         return {
